@@ -5,11 +5,11 @@
 addpath (genpath ('.'));
 
 % load data
-[X y width height names] = read_images('/home/gonzalo/dev/post_data/train');
+[X y width height names] = read_images('C:\dev\facerec\MIT_frontalized_detected\train\step_0');
 
 % Compute the model (full PCA):
 eigenface = eigenfaces(X,y);
-
+ 
 % Plot the first (atmost) 16 eigenfaces:
 figure; hold on;
 title('Eigenfaces (MIT-CBCL database)');
@@ -21,16 +21,17 @@ for i=1:min(16, size(eigenface.W,2))
   title(sprintf('Eigenface #%i', i));
 end
 
+
 %% 2D plot of projection (add the classes you want):
 figure; hold on;
-for i = findclasses(eigenface.y, [1,2,3])
+for i = findclasses(eigenface.y, [1,5,9])
   text(eigenface.P(1,i), eigenface.P(2,i), num2str(eigenface.y(i)));
 end
 
 %% 3D plot of projection (first three classes, add those you want):
 if(size((eigenface.P),2) >= 3)
   figure; hold on;
-  for i = findclasses(eigenface.y, [1,2,3])
+  for i = findclasses(eigenface.y, [1:9])
     % LineSpec: red dots 'r.'
     plot3(eigenface.P(1,i), eigenface.P(2,i), eigenface.P(3,i), 'r.'), view(45,-45);
     text(eigenface.P(1,i), eigenface.P(2,i), eigenface.P(3,i), num2str(eigenface.y(i)));

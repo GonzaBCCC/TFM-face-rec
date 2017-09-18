@@ -1,7 +1,7 @@
 % Copyright (c) Philipp Wagner. All rights reserved.
 % Licensed under the BSD license. See LICENSE file in the project root for full license information.
 
-function [X y width height names] = read_images(path)
+function [X y width height names] = read_images(path, n_images)
 	%% Read images from a given path and return the Imagematrix X.
 	%%
 	%% Returns:
@@ -19,14 +19,37 @@ function [X y width height names] = read_images(path)
 	y = [];
 	names = {};
 	n = 1;
+    %modification for intaking different quantities of images per sample
+    if nargin == 2
+        images = cell(1,n_images);
+    end
+%     img = cell(7,33);
 	for i=1:length(folder)
 		subject = folder{i};
-		images = list_files([path, filesep, subject]);
-		if(length(images) == 0)
+		images_pre = list_files([path, filesep, subject]);
+		if(length(images_pre) == 0)
 			continue; %% dismiss files or empty folder
-		end
-   
-		added = 0;
+        end
+        %% Load a fixed set of samples noticing rotation angles
+        if nargin == 2
+            images = ditributeimg(images_pre,n_images);
+        else
+            % Or load all images in directory as in original function
+            images = images_pre;
+        end
+%         %% Load a random set of samples regardless of rotation angle
+%         if nargin == 2
+%            r = randi(227,n_images,1);
+%            for index=1:length(r)
+%             images{index} = images_pre{r(index)}; 
+%            end
+%         else
+%             % Or load all images in directory as in original function
+%             images = images_pre;
+%         end
+        clearvars images_pre
+
+        added = 0;
 		names{n} = subject;
 		%% build image matrix and class vector
 		for j=1:length(images)

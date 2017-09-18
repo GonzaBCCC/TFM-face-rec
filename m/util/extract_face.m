@@ -1,3 +1,6 @@
+% Copyright (c) Gonzalo Benito. All rights reserved.
+% Licensed under the BSD license. See LICENSE file in the project root for full license information.
+
 function I2 = extract_face(I, BB)
 
 side  = sqrt(1.5 *(BB(:,3).^2));

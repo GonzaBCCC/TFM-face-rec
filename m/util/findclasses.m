@@ -9,5 +9,5 @@ function idx = findclasses(y, list_of_classes)
 		if((i >= min_class) || (i <= max_class))
 			idx = [idx, find(y == i)];
 		end
-	end
+    end
 end
