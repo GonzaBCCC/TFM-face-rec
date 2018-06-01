@@ -1,8 +1,10 @@
 # TFM-face-rec
 
-This is a face-rec project based on VGG_face neural network. It's application is intended for reduced data sets, testing the limits of a deep learning approach under unfavorable conditions.
+This is a face-rec project based on VGG_face neural network. It's application is intended for reduced data sets, testing the limits of a deep learning approach under unfavorable conditions. As this is a prototype for a feasible implementation, jupyter notebooks are used:
 
-The database used for the experiments is a frontalized faces dataset:
+
+
+## The database used for the experiments is a frontalized faces dataset:
 
 -Frontalized faces database construction.
 
