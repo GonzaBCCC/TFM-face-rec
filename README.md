@@ -1,6 +1,8 @@
 # TFM-face-rec
 
-This is a face-rec project including functions such as:
+This is a face-rec project based on VGG_face neural network. It's application is intended for reduced data sets, testing the limits of a deep learning approach under unfavorable conditions.
+
+The database used for the experiments is a frontalized faces dataset:
 
 -Frontalized faces database construction.
 
@@ -25,7 +27,4 @@ For more information on the database refer to:
 
 "B. Weyrauch, J. Huang, B. Heisele, and V. Blanz. Component-based Face Recognition with 3D Morphable Models, First IEEE Workshop on Face Processing in Video, Washington, D.C., 2004."
 
-14/08/2017:
-Matlab implementations for experiments have been uploaded. These are mostly the facerec proyect by bytefish (https://github.com/bytefish/facerec) with addition of particular experimentation scripts designed to fit MIT-CBCL database preprocessed with face detection and frontalization.
 
-Face detection is performed by using Haar Cascade object detection implemented by Matlab.
